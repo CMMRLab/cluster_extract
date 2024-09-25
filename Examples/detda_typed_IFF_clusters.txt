@@ -1,0 +1,117 @@
+This is a saved .txt file for the print outs that appear when running cluster_extract v3.3 / 8 July 2023
+
+
+
+Elements found in system:
+- C
+- H
+- N
+
+
+
+-----------------------Bond type bond length statistics for kept custers----------------------
+Bond                    Bond    Bond Length   Bond Length     Bond Length     Bond Length  
+Type                   Count     Average       Minimum         Maximum     Standard Deviation
+----------------------------------------------------------------------------------------------
+Sp2_C-Sp2_C              6        1.3483       1.3417          1.3536          0.0038     
+Sp2_C-Sp2_N              2        1.2692       1.2682          1.2703          0.0010     
+Sp2_C-Sp3_C              3        1.5247       1.5221          1.5285          0.0028     
+Sp2_C-Terminal_H         1        1.1005       1.1005          1.1005          0.0000     
+Sp2_N-Terminal_H         4        1.0451       1.0405          1.0478          0.0030     
+Sp3_C-Sp3_C              2        1.5339       1.5322          1.5355          0.0016     
+Sp3_C-Terminal_H         13       1.1149       1.1070          1.1189          0.0029     
+
+
+
+------------------------Bond type bond length statistics for volatiles------------------------
+Bond                    Bond    Bond Length   Bond Length     Bond Length     Bond Length  
+Type                   Count     Average       Minimum         Maximum     Standard Deviation
+----------------------------------------------------------------------------------------------
+
+
+
+--------------------------------------------Cluster Analysis-------------------------------------
+  molID     Molecule Size          Mass              %Mass           %Size      Molecule Formula
+-------------------------------------------------------------------------------------------------
+    1              31             178.28            100.00          100.00        C11-H18-N2   
+    2               0              0.00              0.00            0.00          Initial     
+    3               0              0.00              0.00            0.00          Initial     
+    4               0              0.00              0.00            0.00          Initial     
+    5               0              0.00              0.00            0.00          Initial     
+    6               0              0.00              0.00            0.00          Initial     
+    7               0              0.00              0.00            0.00          Initial     
+    8               0              0.00              0.00            0.00          Initial     
+    9               0              0.00              0.00            0.00          Initial     
+    10              0              0.00              0.00            0.00          Initial     
+
+
+*NOTE: Xn and p calculations are based on clusters that meet your minimum cluster size/mass. Mn is computed before removal of molecules*
+N0 used for calculations: 492
+Number average molar mass (Mn) : 17.827951000000002
+Degree of Polymerization (Xn)  : 492.0
+Extent of reaction (conversion): 99.797 %
+
+
+By-products criteria: {'method': 'mass', 'criteria': 0}
+------By Products Tally------
+Type                    Count
+-----------------------------
+
+
+
+----Inputs used for find_rings----
+Walked along elements  :  ['C', 'H', 'O', 'N']
+Checked for ring sizes :  [3, 4, 5, 6, 7]
+Fused ring clusters    :  False
+Fused rings checked    :  [5, 6, 7]
+Total rings found      :  1
+0 atoms along a ring seam had to be partitioned amoung the ring
+types (To find accurate %Mass of ring type to entire system).
+Giving preference of partionioning in this order:
+- 6 member ring
+- 5 member ring
+- 7 member ring
+- 4 member ring
+- 3 member ring
+- 8 member ring
+- minimum ring size
+*NOTE: If count of rings exists, but no atoms exist for that ring, this means the
+atoms for that ring were partionted to other rings that the atoms belong to.*
+
+---------------------------------------------------------------------------------------------
+|          Ring            |           Count           |             %Ring count            |
+|          Type            |         of Rings          |            per all rings           |
+---------------------------------------------------------------------------------------------
+|            6             |             1             |               100.00               |
+---------------------------------------------------------------------------------------------
+|    Element      |     natoms      |       Mass       |      %Mass       |     %natoms     |
+---------------------------------------------------------------------------------------------
+|       C         |        6        |      72.07       |      40.42       |      19.35      |
+|       H         |        0        |       0.00       |       0.00       |       0.00      |
+|       N         |        0        |       0.00       |       0.00       |       0.00      |
+|      all        |        6        |      72.07       |      40.42       |      19.35      |
+---------------------------------------------------------------------------------------------
+
+
+-------------------------------------Ringed Clusters--------------------------------------
+  ringID         Ring Size       Ring Mass           %Mass           %Size    Ring Formula
+------------------------------------------------------------------------------------------
+    1                    6           72.07           40.42           19.35          C6    
+
+
+
+-----------------------------Hybridization Information-------------------------------
+     Atom-Type            natoms            Mass            %Mass           %natoms     
+-------------------------------------------------------------------------------------
+       Sp2 C                6              72.07            40.42            19.35      
+       Sp3 C                5              60.06            33.69            16.13      
+       all C                11             132.12           74.11            35.48      
+       all H                18             18.14            10.18            58.06      
+       Sp2 N                2              28.01            15.71             6.45      
+       all N                2              28.01            15.71             6.45      
+
+
+----------------Char yield data----------------
+Char yield             :  0.44
+Extracted Cluster Mass :  178.28
+Entire System Mass     :  178.28

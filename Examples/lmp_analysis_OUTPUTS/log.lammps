@@ -1,0 +1,3125 @@
+LAMMPS (29 Oct 2020)
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_10ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_10ps.data
+Reading data file ...
+  orthogonal box = (-16.420874 -16.785192 -16.999571) to (16.420874 16.785192 16.999571)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  3090 atoms
+  reading velocities ...
+  3090 velocities
+  read_data CPU = 0.013 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 6 6 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_10ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8058.0 | 8138.0 | 8213.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    3918.8661    28631.631   -304469.04     36083.83   -340552.87            0            0            0   -338721.81    1.1788453    32.841749    33.570383    33.999142 
+     100    3857.8989    18850.669   -304679.89    35522.462   -340202.35            0            0            0   -338404.46    1.1788453    32.841749    33.570383    33.999142 
+Loop time of 7.51593 on 64 procs for 100 steps with 3090 atoms
+
+Performance: 0.115 ns/day, 208.776 hours/ns, 13.305 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 4.9883     | 6.1361     | 6.9003     |  24.5 | 81.64
+Neigh   | 0.017318   | 0.01836    | 0.019944   |   0.4 |  0.24
+Comm    | 0.024321   | 0.78869    | 1.9359     |  68.3 | 10.49
+Output  | 0.00022602 | 0.0062697  | 0.006371   |   1.0 |  0.08
+Modify  | 0.51069    | 0.51481    | 0.57547    |   1.1 |  6.85
+Other   |            | 0.05165    |            |       |  0.69
+
+Nlocal:        48.2812 ave          63 max          34 min
+Histogram: 2 5 4 11 10 12 8 8 3 1
+Nghost:        2760.83 ave        2792 max        2712 min
+Histogram: 2 0 2 2 12 12 8 14 8 4
+Neighs:        27669.9 ave       37239 max       19075 min
+Histogram: 5 3 5 12 9 13 5 5 6 1
+
+Total # of neighbors = 1770873
+Ave neighs/atom = 573.09806
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_10ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_20ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_20ps.data
+Reading data file ...
+  orthogonal box = (-15.063295 -15.367657 -15.619214) to (15.063295 15.367657 15.619214)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2790 atoms
+  reading velocities ...
+  2790 velocities
+  read_data CPU = 0.008 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 6 6 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_20ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8833.0 | 8887.0 | 8981.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2699.8561    11644.994    -311394.3    22445.198    -333839.5            0            0            0   -332567.46    1.4295381    30.126589    30.735314    31.238428 
+     100    2733.3929    19087.275   -311404.96    22724.005   -334128.97            0            0            0    -332868.2    1.4295381    30.126589    30.735314    31.238428 
+Loop time of 8.71069 on 64 procs for 100 steps with 2790 atoms
+
+Performance: 0.099 ns/day, 241.964 hours/ns, 11.480 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 5.6015     | 7.2021     | 8.0592     |  29.2 | 82.68
+Neigh   | 0.01889    | 0.019788   | 0.021004   |   0.3 |  0.23
+Comm    | 0.037616   | 0.89222    | 2.4927     |  83.0 | 10.24
+Output  | 0.00024414 | 0.005858   | 0.0059512  |   0.9 |  0.07
+Modify  | 0.53394    | 0.54296    | 0.59694    |   0.9 |  6.23
+Other   |            | 0.04777    |            |       |  0.55
+
+Nlocal:        43.5938 ave          55 max          31 min
+Histogram: 1 7 6 4 9 10 9 13 2 3
+Nghost:        3015.94 ave        3040 max        2989 min
+Histogram: 4 6 7 5 5 8 10 7 7 5
+Neighs:        29464.7 ave       36951 max       20555 min
+Histogram: 1 4 8 4 10 6 12 12 4 3
+
+Total # of neighbors = 1885738
+Ave neighs/atom = 675.89176
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_20ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_30ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_30ps.data
+Reading data file ...
+  orthogonal box = (-14.964558 -14.481956 -15.573558) to (14.964558 14.481956 15.573558)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2662 atoms
+  reading velocities ...
+  2662 velocities
+  read_data CPU = 0.007 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_30ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8858.0 | 8959.0 | 9083.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2596.1853    22674.486   -307452.19    20592.774   -328044.96            0            0            0    -326985.7    1.4991798    29.929116    28.963912    31.147115 
+     100    2604.7841    17869.653   -307455.58    20660.979   -328116.56            0            0            0   -327063.73    1.4991798    29.929116    28.963912    31.147115 
+Loop time of 8.91566 on 64 procs for 100 steps with 2662 atoms
+
+Performance: 0.097 ns/day, 247.657 hours/ns, 11.216 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 5.7498     | 7.4096     | 8.2712     |  30.0 | 83.11
+Neigh   | 0.021385   | 0.022278   | 0.023892   |   0.4 |  0.25
+Comm    | 0.031509   | 0.89263    | 2.5509     |  86.6 | 10.01
+Output  | 0.00022006 | 0.0056114  | 0.005702   |   0.9 |  0.06
+Modify  | 0.53348    | 0.53913    | 0.59175    |   0.9 |  6.05
+Other   |            | 0.04641    |            |       |  0.52
+
+Nlocal:        41.5938 ave          50 max          31 min
+Histogram: 2 2 5 6 8 9 17 8 4 3
+Nghost:        3049.22 ave        3100 max        3005 min
+Histogram: 5 6 9 7 7 10 8 4 4 4
+Neighs:        28807.5 ave       35389 max       21144 min
+Histogram: 3 1 6 6 7 13 15 5 5 3
+
+Total # of neighbors = 1843678
+Ave neighs/atom = 692.59128
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_30ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_40ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_40ps.data
+Reading data file ...
+  orthogonal box = (-14.736042 -14.159442 -15.276427) to (14.736042 14.159442 15.276427)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2557 atoms
+  reading velocities ...
+  2557 velocities
+  read_data CPU = 0.007 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_40ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8868.0 | 8981.0 | 9072.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2551.2872    5004.2622   -302188.41    19438.131   -321626.54            0            0            0   -320680.84    1.5626679    29.472084    28.318884    30.552855 
+     100    2595.2538    15663.995   -302194.69     19773.11    -321967.8            0            0            0   -321017.06    1.5626679    29.472084    28.318884    30.552855 
+Loop time of 9.11133 on 64 procs for 100 steps with 2557 atoms
+
+Performance: 0.095 ns/day, 253.093 hours/ns, 10.975 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 5.8061     | 7.5596     | 8.4662     |  31.2 | 82.97
+Neigh   | 0.021658   | 0.022509   | 0.024189   |   0.5 |  0.25
+Comm    | 0.04047    | 0.94688    | 2.7008     |  88.1 | 10.39
+Output  | 0.00023699 | 0.005519   | 0.0056059  |   0.9 |  0.06
+Modify  | 0.52898    | 0.532      | 0.58566    |   0.9 |  5.84
+Other   |            | 0.04483    |            |       |  0.49
+
+Nlocal:        39.9531 ave          54 max          30 min
+Histogram: 3 7 11 10 7 15 5 4 1 1
+Nghost:        3060.50 ave        3090 max        3029 min
+Histogram: 3 5 7 5 9 9 9 8 4 5
+Neighs:        28182.9 ave       36717 max       21164 min
+Histogram: 2 7 9 9 10 10 8 6 1 2
+
+Total # of neighbors = 1803706
+Ave neighs/atom = 705.39930
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_40ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_50ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_50ps.data
+Reading data file ...
+  orthogonal box = (-14.446388 -13.679960 -15.253934) to (14.446388 13.679960 15.253934)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2478 atoms
+  reading velocities ...
+  2478 velocities
+  read_data CPU = 0.007 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_50ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 9061.0 | 9135.0 | 9231.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2539.9792    24050.947   -299109.84    18753.851   -317863.69            0            0            0    -317016.7    1.6348466    28.892776     27.35992    30.507869 
+     100     2462.081    12207.889    -299111.4    18178.693    -317290.1            0            0            0   -316439.98    1.6348466    28.892776     27.35992    30.507869 
+Loop time of 9.53175 on 64 procs for 100 steps with 2478 atoms
+
+Performance: 0.091 ns/day, 264.771 hours/ns, 10.491 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 5.9719     | 7.8528     | 8.884      |  32.4 | 82.39
+Neigh   | 0.021966   | 0.022688   | 0.02447    |   0.4 |  0.24
+Comm    | 0.028428   | 1.0606     | 2.9419     |  88.1 | 11.13
+Output  | 0.00022316 | 0.0053341  | 0.005419   |   0.9 |  0.06
+Modify  | 0.53902    | 0.5466     | 0.59957    |   0.9 |  5.73
+Other   |            | 0.04369    |            |       |  0.46
+
+Nlocal:        38.7188 ave          50 max          27 min
+Histogram: 1 5 6 9 11 6 15 6 2 3
+Nghost:        3111.81 ave        3146 max        3088 min
+Histogram: 4 8 14 9 8 5 7 4 2 3
+Neighs:        28029.8 ave       37075 max       18620 min
+Histogram: 1 4 6 8 14 7 14 5 3 2
+
+Total # of neighbors = 1793907
+Ave neighs/atom = 723.93341
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_50ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_60ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_60ps.data
+Reading data file ...
+  orthogonal box = (-14.311506 -13.483292 -14.897125) to (14.311506 13.483292 14.897125)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2397 atoms
+  reading velocities ...
+  2397 velocities
+  read_data CPU = 0.007 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_60ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8990.0 | 9144.0 | 9316.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2559.8761    22547.395   -294995.85    18282.689   -313278.54            0            0            0    -312515.5    1.6975645    28.623012    26.966584    29.794249 
+     100    2550.7754    15774.681   -295000.28    18217.691   -313217.98            0            0            0   -312450.98    1.6975645    28.623012    26.966584    29.794249 
+Loop time of 9.58146 on 64 procs for 100 steps with 2397 atoms
+
+Performance: 0.090 ns/day, 266.152 hours/ns, 10.437 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1486     | 8.0133     | 8.9412     |  32.7 | 83.63
+Neigh   | 0.022879   | 0.023589   | 0.025321   |   0.4 |  0.25
+Comm    | 0.019573   | 0.94723    | 2.8122     |  95.2 |  9.89
+Output  | 0.00022507 | 0.0053042  | 0.005389   |   0.9 |  0.06
+Modify  | 0.54052    | 0.54415    | 0.59341    |   0.8 |  5.68
+Other   |            | 0.04791    |            |       |  0.50
+
+Nlocal:        37.4531 ave          47 max          18 min
+Histogram: 1 0 0 0 6 11 20 18 4 4
+Nghost:        3121.28 ave        3192 max        3059 min
+Histogram: 4 4 8 14 6 10 8 3 4 3
+Neighs:        27560.6 ave       35664 max       13083 min
+Histogram: 1 0 0 2 6 12 20 14 6 3
+
+Total # of neighbors = 1763880
+Ave neighs/atom = 735.86984
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_60ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_70ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_70ps.data
+Reading data file ...
+  orthogonal box = (-14.149198 -13.336732 -14.903910) to (14.149198 13.336732 14.903910)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2344 atoms
+  reading velocities ...
+  2344 velocities
+  read_data CPU = 0.010 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_70ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8887.0 | 9038.0 | 9234.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2591.8904    18507.458   -293083.29    18101.861   -311185.15            0            0            0      -310462    1.7257155    28.298396    26.673464    29.807819 
+     100    2603.7451     20360.36   -293087.02    18184.654   -311271.67            0            0            0   -310548.09    1.7257155    28.298396    26.673464    29.807819 
+Loop time of 9.61203 on 64 procs for 100 steps with 2344 atoms
+
+Performance: 0.090 ns/day, 267.001 hours/ns, 10.404 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0467     | 8.0172     | 8.9689     |  33.2 | 83.41
+Neigh   | 0.022144   | 0.022952   | 0.025144   |   0.3 |  0.24
+Comm    | 0.03179    | 0.98332    | 2.9543     |  95.0 | 10.23
+Output  | 0.00023198 | 0.0052229  | 0.0053089  |   0.9 |  0.05
+Modify  | 0.53437    | 0.54081    | 0.59148    |   0.9 |  5.63
+Other   |            | 0.04249    |            |       |  0.44
+
+Nlocal:        36.6250 ave          46 max          19 min
+Histogram: 1 0 1 2 4 16 12 17 6 5
+Nghost:        3084.59 ave        3160 max        3026 min
+Histogram: 3 8 7 9 13 8 10 3 1 2
+Neighs:        26944.1 ave       34274 max       13829 min
+Histogram: 1 0 2 2 4 14 17 16 5 3
+
+Total # of neighbors = 1724420
+Ave neighs/atom = 735.67406
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_70ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_80ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_80ps.data
+Reading data file ...
+  orthogonal box = (-13.864752 -13.288372 -14.917599) to (13.864752 13.288372 14.917599)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2288 atoms
+  reading velocities ...
+  2288 velocities
+  read_data CPU = 0.007 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_80ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8747.0 | 8954.0 | 9143.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2561.2506    31459.145   -289990.98    17460.334   -307451.31            0            0            0   -306789.47    1.7521344    27.729504    26.576745    29.835198 
+     100    2610.0739    21824.103   -289990.07    17793.168   -307783.24            0            0            0   -307123.34    1.7521344    27.729504    26.576745    29.835198 
+Loop time of 9.64093 on 64 procs for 100 steps with 2288 atoms
+
+Performance: 0.090 ns/day, 267.804 hours/ns, 10.372 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1142     | 8.0442     | 9.0307     |  33.8 | 83.44
+Neigh   | 0.021754   | 0.022456   | 0.023816   |   0.3 |  0.23
+Comm    | 0.019737   | 1.0068     | 2.9366     |  95.7 | 10.44
+Output  | 0.00022411 | 0.0050565  | 0.005136   |   0.9 |  0.05
+Modify  | 0.51472    | 0.52107    | 0.56576    |   0.8 |  5.40
+Other   |            | 0.04137    |            |       |  0.43
+
+Nlocal:        35.7500 ave          46 max          21 min
+Histogram: 2 0 1 6 7 11 18 10 7 2
+Nghost:        3061.84 ave        3146 max        2995 min
+Histogram: 4 6 5 11 13 10 7 6 1 1
+Neighs:        26285.7 ave       33603 max       14863 min
+Histogram: 1 1 0 7 8 13 13 11 6 4
+
+Total # of neighbors = 1682286
+Ave neighs/atom = 735.26486
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_80ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_90ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_90ps.data
+Reading data file ...
+  orthogonal box = (-13.773275 -13.231257 -14.646920) to (13.773275 13.231257 14.646920)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2252 atoms
+  reading velocities ...
+  2252 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_90ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8822.0 | 9031.0 | 9171.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2480.8902    13542.507   -289065.71    16646.286   -305711.99            0            0            0    -305101.6    1.7943826    27.546549    26.462514     29.29384 
+     100    2545.0696    23370.728   -289066.44    17076.917   -306143.36            0            0            0   -305530.15    1.7943826    27.546549    26.462514     29.29384 
+Loop time of 9.75955 on 64 procs for 100 steps with 2252 atoms
+
+Performance: 0.089 ns/day, 271.099 hours/ns, 10.246 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0515     | 8.1747     | 9.1287     |  34.6 | 83.76
+Neigh   | 0.021875   | 0.022574   | 0.023755   |   0.3 |  0.23
+Comm    | 0.031292   | 0.98327    | 3.1059     |  99.8 | 10.07
+Output  | 0.00021696 | 0.0049899  | 0.0050709  |   0.9 |  0.05
+Modify  | 0.52822    | 0.53308    | 0.57948    |   0.8 |  5.46
+Other   |            | 0.04094    |            |       |  0.42
+
+Nlocal:        35.1875 ave          44 max          14 min
+Histogram: 1 0 0 0 3 10 14 13 16 7
+Nghost:        3087.03 ave        3146 max        3002 min
+Histogram: 1 4 1 7 9 12 6 11 8 5
+Neighs:        26227.2 ave       33346 max       10090 min
+Histogram: 1 0 0 0 5 11 14 18 9 6
+
+Total # of neighbors = 1678543
+Ave neighs/atom = 745.35657
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_90ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_100ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_100ps.data
+Reading data file ...
+  orthogonal box = (-13.636152 -13.289559 -14.685781) to (13.636152 13.289559 14.685781)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2227 atoms
+  reading velocities ...
+  2227 velocities
+  read_data CPU = 0.007 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_100ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8783.0 | 8932.0 | 9061.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2465.3507    25388.321   -288532.14      16358.3   -304890.44            0            0            0   -304274.71     1.797735    27.272304    26.579118    29.371562 
+     100    2555.7673    20310.753   -288532.04     16958.24   -305490.28            0            0            0   -304879.88     1.797735    27.272304    26.579118    29.371562 
+Loop time of 9.74254 on 64 procs for 100 steps with 2227 atoms
+
+Performance: 0.089 ns/day, 270.626 hours/ns, 10.264 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0001     | 8.076      | 9.1041     |  34.6 | 82.89
+Neigh   | 0.02145    | 0.022225   | 0.024122   |   0.4 |  0.23
+Comm    | 0.020127   | 1.0485     | 3.1243     |  95.9 | 10.76
+Output  | 0.00023103 | 0.0050596  | 0.005146   |   0.9 |  0.05
+Modify  | 0.53859    | 0.54988    | 0.59707    |   0.9 |  5.64
+Other   |            | 0.04085    |            |       |  0.42
+
+Nlocal:        34.7969 ave          47 max          19 min
+Histogram: 1 1 3 7 6 13 22 6 3 2
+Nghost:        3053.05 ave        3110 max        2995 min
+Histogram: 1 5 5 11 13 7 7 6 8 1
+Neighs:        25719.9 ave       35283 max       13562 min
+Histogram: 1 1 2 7 10 12 21 5 3 2
+
+Total # of neighbors = 1646071
+Ave neighs/atom = 739.14279
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_100ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_110ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_110ps.data
+Reading data file ...
+  orthogonal box = (-13.487431 -13.157557 -14.666552) to (13.487431 13.157557 14.666552)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2196 atoms
+  reading velocities ...
+  2196 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_110ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8776.0 | 8972.0 | 9146.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2528.7405    4258.1499   -287358.98    16545.241   -303904.22            0            0            0   -303312.79    1.8345117    26.974862    26.315115    29.333104 
+     100    2521.1343    29439.717   -287358.25    16495.475   -303853.72            0            0            0   -303257.47    1.8345117    26.974862    26.315115    29.333104 
+Loop time of 9.81308 on 64 procs for 100 steps with 2196 atoms
+
+Performance: 0.088 ns/day, 272.585 hours/ns, 10.190 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.2009     | 8.1701     | 9.182      |  34.2 | 83.26
+Neigh   | 0.022096   | 0.022749   | 0.024632   |   0.4 |  0.23
+Comm    | 0.019125   | 1.0308     | 3.0004     |  96.3 | 10.50
+Output  | 0.00022101 | 0.004902   | 0.0049779  |   0.8 |  0.05
+Modify  | 0.54111    | 0.544      | 0.59111    |   0.8 |  5.54
+Other   |            | 0.04057    |            |       |  0.41
+
+Nlocal:        34.3125 ave          45 max          26 min
+Histogram: 4 1 12 11 15 7 9 2 2 1
+Nghost:        3067.48 ave        3131 max        3010 min
+Histogram: 4 5 7 8 11 10 7 4 6 2
+Neighs:        25594.1 ave       33599 max       18872 min
+Histogram: 4 1 10 10 14 9 8 4 3 1
+
+Total # of neighbors = 1638020
+Ave neighs/atom = 745.91075
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_110ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_120ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_120ps.data
+Reading data file ...
+  orthogonal box = (-13.518779 -12.887949 -14.601232) to (13.518779 12.887949 14.601232)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2156 atoms
+  reading velocities ...
+  2156 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_120ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8807.0 | 8978.0 | 9140.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2531.6167    28841.416   -285395.09    16262.208    -301657.3            0            0            0   -301094.36    1.8684783    27.037557    25.775897    29.202463 
+     100    2424.9235    11502.766   -285406.79    15576.849   -300983.64            0            0            0   -300419.24    1.8684783    27.037557    25.775897    29.202463 
+Loop time of 9.89462 on 64 procs for 100 steps with 2156 atoms
+
+Performance: 0.087 ns/day, 274.851 hours/ns, 10.107 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.2625     | 8.2795     | 9.2952     |  35.4 | 83.68
+Neigh   | 0.022085   | 0.022637   | 0.023939   |   0.3 |  0.23
+Comm    | 0.022998   | 1.037      | 3.0541     |  99.9 | 10.48
+Output  | 0.00022888 | 0.0048465  | 0.0049219  |   0.8 |  0.05
+Modify  | 0.50652    | 0.51072    | 0.55646    |   0.8 |  5.16
+Other   |            | 0.0399     |            |       |  0.40
+
+Nlocal:        33.6875 ave          43 max          23 min
+Histogram: 3 2 2 7 11 8 15 8 4 4
+Nghost:        3074.25 ave        3129 max        3025 min
+Histogram: 2 7 9 8 10 13 2 6 5 2
+Neighs:        25244.2 ave       32514 max       16990 min
+Histogram: 3 3 4 6 11 11 13 7 5 1
+
+Total # of neighbors = 1615628
+Ave neighs/atom = 749.36364
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_120ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_130ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_130ps.data
+Reading data file ...
+  orthogonal box = (-13.328318 -13.075299 -14.557106) to (13.328318 13.075299 14.557106)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2124 atoms
+  reading velocities ...
+  2124 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_130ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8699.0 | 8887.0 | 9039.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2579.3853    24136.254   -282909.83     16323.02   -299232.85            0            0            0   -298732.94    1.8607444    26.656636    26.150598    29.114212 
+     100    2523.2892    16883.033   -282910.36    15968.029   -298878.39            0            0            0   -298373.75    1.8607444    26.656636    26.150598    29.114212 
+Loop time of 9.84601 on 64 procs for 100 steps with 2124 atoms
+
+Performance: 0.088 ns/day, 273.500 hours/ns, 10.156 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1386     | 8.1973     | 9.2348     |  36.0 | 83.26
+Neigh   | 0.021387   | 0.022056   | 0.0232     |   0.3 |  0.22
+Comm    | 0.014453   | 1.0517     | 3.1109     | 100.5 | 10.68
+Output  | 0.00021791 | 0.0047755  | 0.0048499  |   0.8 |  0.05
+Modify  | 0.52292    | 0.52631    | 0.57162    |   0.8 |  5.35
+Other   |            | 0.04384    |            |       |  0.45
+
+Nlocal:        33.1875 ave          40 max          17 min
+Histogram: 1 0 4 3 5 2 11 15 9 14
+Nghost:        3037.00 ave        3097 max        2973 min
+Histogram: 2 5 3 6 14 14 6 7 4 3
+Neighs:        24585.8 ave       30265 max       12333 min
+Histogram: 1 0 4 3 5 4 11 13 14 9
+
+Total # of neighbors = 1573492
+Ave neighs/atom = 740.81544
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_130ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_140ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_140ps.data
+Reading data file ...
+  orthogonal box = (-13.329033 -13.039669 -14.500479) to (13.329033 13.039669 14.500479)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2101 atoms
+  reading velocities ...
+  2101 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_140ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8647.0 | 8794.0 | 8941.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0     2559.639    10405.444   -282420.15    16022.575   -298442.72            0            0            0   -297959.76    1.8698705    26.658066    26.079339    29.000958 
+     100    2552.7032    22472.983    -282427.7    15979.159   -298406.86            0            0            0   -297929.17    1.8698705    26.658066    26.079339    29.000958 
+Loop time of 9.78021 on 64 procs for 100 steps with 2101 atoms
+
+Performance: 0.088 ns/day, 271.672 hours/ns, 10.225 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0823     | 8.1316     | 9.142      |  36.9 | 83.14
+Neigh   | 0.020915   | 0.021768   | 0.023294   |   0.4 |  0.22
+Comm    | 0.030075   | 1.0395     | 3.0883     | 103.2 | 10.63
+Output  | 0.0002799  | 0.0047361  | 0.0048101  |   0.8 |  0.05
+Modify  | 0.53534    | 0.53904    | 0.58437    |   0.8 |  5.51
+Other   |            | 0.04361    |            |       |  0.45
+
+Nlocal:        32.8281 ave          40 max          17 min
+Histogram: 2 0 1 1 8 5 15 15 6 11
+Nghost:        3004.73 ave        3052 max        2945 min
+Histogram: 2 3 5 8 8 7 10 10 6 5
+Neighs:        24220.2 ave       29713 max       12390 min
+Histogram: 2 1 0 1 7 6 14 17 7 9
+
+Total # of neighbors = 1550093
+Ave neighs/atom = 737.78820
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_140ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_150ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_150ps.data
+Reading data file ...
+  orthogonal box = (-13.456975 -12.932128 -14.393623) to (13.456975 12.932128 14.393623)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2080 atoms
+  reading velocities ...
+  2080 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_150ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8588.0 | 8732.0 | 8848.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2468.0388    31319.636   -281714.95    15294.693   -297009.64            0            0            0   -296543.32    1.8796043    26.913949    25.864256    28.787245 
+     100    2486.2513    14503.452   -281712.67    15407.558   -297120.22            0            0            0   -296644.67    1.8796043    26.913949    25.864256    28.787245 
+Loop time of 9.7139 on 64 procs for 100 steps with 2080 atoms
+
+Performance: 0.089 ns/day, 269.831 hours/ns, 10.295 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0626     | 8.0889     | 9.1107     |  36.5 | 83.27
+Neigh   | 0.020809   | 0.021543   | 0.023013   |   0.4 |  0.22
+Comm    | 0.025404   | 1.0448     | 3.0713     | 101.4 | 10.76
+Output  | 0.00022006 | 0.0047223  | 0.004797   |   0.8 |  0.05
+Modify  | 0.51135    | 0.51524    | 0.55922    |   0.8 |  5.30
+Other   |            | 0.03864    |            |       |  0.40
+
+Nlocal:        32.5000 ave          42 max          14 min
+Histogram: 1 0 2 1 3 11 15 22 6 3
+Nghost:        2988.17 ave        3030 max        2938 min
+Histogram: 5 4 2 12 4 7 10 7 6 7
+Neighs:        23872.3 ave       31591 max       10203 min
+Histogram: 1 0 2 0 8 13 12 20 5 3
+
+Total # of neighbors = 1527825
+Ave neighs/atom = 734.53125
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_150ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_160ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_160ps.data
+Reading data file ...
+  orthogonal box = (-13.492414 -12.937776 -14.324143) to (13.492414 12.937776 14.324143)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2065 atoms
+  reading velocities ...
+  2065 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_160ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8572.0 | 8727.0 | 8853.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2621.3253    21562.964   -280208.68    16127.421    -296336.1            0            0            0   -295853.32    1.8798581    26.984827    25.875552    28.648286 
+     100    2521.9553    5716.2786    -280221.7    15516.058   -295737.76            0            0            0   -295263.97    1.8798581    26.984827    25.875552    28.648286 
+Loop time of 9.6346 on 64 procs for 100 steps with 2065 atoms
+
+Performance: 0.090 ns/day, 267.628 hours/ns, 10.379 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0282     | 8.0812     | 9.0184     |  36.4 | 83.88
+Neigh   | 0.020544   | 0.021245   | 0.022338   |   0.3 |  0.22
+Comm    | 0.028328   | 0.96376    | 3.0171     | 105.5 | 10.00
+Output  | 0.00021505 | 0.0046723  | 0.0047441  |   0.8 |  0.05
+Modify  | 0.51631    | 0.5204     | 0.56336    |   0.8 |  5.40
+Other   |            | 0.04335    |            |       |  0.45
+
+Nlocal:        32.2656 ave          40 max          17 min
+Histogram: 2 0 2 0 2 15 17 11 8 7
+Nghost:        2983.95 ave        3033 max        2916 min
+Histogram: 2 1 5 2 9 17 11 7 7 3
+Neighs:        23572.7 ave       29460 max       12364 min
+Histogram: 2 0 2 0 4 15 14 14 7 6
+
+Total # of neighbors = 1508650
+Ave neighs/atom = 730.58111
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_160ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_170ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_170ps.data
+Reading data file ...
+  orthogonal box = (-13.387659 -12.763387 -14.425950) to (13.387659 12.763387 14.425950)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2050 atoms
+  reading velocities ...
+  2050 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_170ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8529.0 | 8753.0 | 8944.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2623.3111    18784.631   -279678.15    16022.344   -295700.49            0            0            0   -295224.57    1.9056272    26.775318    25.526773      28.8519 
+     100    2604.1413    16180.162   -279687.93    15905.261   -295593.19            0            0            0   -295116.77    1.9056272    26.775318    25.526773      28.8519 
+Loop time of 9.86872 on 64 procs for 100 steps with 2050 atoms
+
+Performance: 0.088 ns/day, 274.131 hours/ns, 10.133 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1034     | 8.1844     | 9.3039     |  37.2 | 82.93
+Neigh   | 0.020745   | 0.021402   | 0.022961   |   0.3 |  0.22
+Comm    | 0.018858   | 1.1379     | 3.2193     |  99.8 | 11.53
+Output  | 0.00020409 | 0.0047023  | 0.004777   |   0.8 |  0.05
+Modify  | 0.47884    | 0.48203    | 0.52746    |   0.8 |  4.88
+Other   |            | 0.0383     |            |       |  0.39
+
+Nlocal:        32.0312 ave          41 max          21 min
+Histogram: 1 1 7 2 13 10 11 9 7 3
+Nghost:        3001.58 ave        3061 max        2934 min
+Histogram: 5 3 3 9 6 12 3 13 8 2
+Neighs:        23567.5 ave       30377 max       15089 min
+Histogram: 1 2 6 4 13 9 12 9 6 2
+
+Total # of neighbors = 1508320
+Ave neighs/atom = 735.76585
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_170ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_180ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_180ps.data
+Reading data file ...
+  orthogonal box = (-13.410062 -12.828086 -14.322508) to (13.410062 12.828086 14.322508)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2032 atoms
+  reading velocities ...
+  2032 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_180ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8519.0 | 8662.0 | 8809.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2494.6313    22939.985   -279477.12    15102.561   -294579.68            0            0            0   -294107.59    1.9040647    26.820124    25.656173    28.645016 
+     100    2523.8213    12910.979   -279474.94    15279.278   -294754.22            0            0            0   -294284.52    1.9040647    26.820124    25.656173    28.645016 
+Loop time of 9.76277 on 64 procs for 100 steps with 2032 atoms
+
+Performance: 0.088 ns/day, 271.188 hours/ns, 10.243 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0274     | 8.1013     | 9.1664     |  37.1 | 82.98
+Neigh   | 0.020339   | 0.020994   | 0.022281   |   0.4 |  0.22
+Comm    | 0.01865    | 1.0835     | 3.1583     | 101.4 | 11.10
+Output  | 0.00022411 | 0.0046204  | 0.004693   |   0.8 |  0.05
+Modify  | 0.51101    | 0.51389    | 0.55869    |   0.8 |  5.26
+Other   |            | 0.03849    |            |       |  0.39
+
+Nlocal:        31.7500 ave          42 max          23 min
+Histogram: 5 1 11 9 9 13 8 3 2 3
+Nghost:        2968.19 ave        3030 max        2916 min
+Histogram: 6 8 6 8 7 6 9 7 6 1
+Neighs:        23181.0 ave       30592 max       16611 min
+Histogram: 5 1 10 11 7 12 9 4 2 3
+
+Total # of neighbors = 1483585
+Ave neighs/atom = 730.11073
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_180ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_190ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_190ps.data
+Reading data file ...
+  orthogonal box = (-13.280949 -12.934283 -14.186374) to (13.280949 12.934283 14.186374)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  2013 atoms
+  reading velocities ...
+  2013 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_190ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8527.0 | 8664.0 | 8800.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2477.0661    16184.818   -278820.21    14855.931   -293676.14            0            0            0   -293231.03    1.9212434    26.561898    25.868566    28.372749 
+     100    2484.0311    14141.555   -278825.45    14897.703   -293723.16            0            0            0    -293265.1    1.9212434    26.561898    25.868566    28.372749 
+Loop time of 9.73325 on 64 procs for 100 steps with 2013 atoms
+
+Performance: 0.089 ns/day, 270.368 hours/ns, 10.274 timesteps/s
+99.9% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0596     | 8.1383     | 9.1403     |  37.2 | 83.61
+Neigh   | 0.020291   | 0.020829   | 0.02533    |   0.5 |  0.21
+Comm    | 0.030997   | 1.0335     | 3.1123     | 104.4 | 10.62
+Output  | 0.00022388 | 0.0045975  | 0.004669   |   0.8 |  0.05
+Modify  | 0.48256    | 0.49825    | 0.54339    |   0.9 |  5.12
+Other   |            | 0.03778    |            |       |  0.39
+
+Nlocal:        31.4531 ave          39 max          19 min
+Histogram: 1 1 2 5 8 6 11 14 7 9
+Nghost:        2968.09 ave        3030 max        2922 min
+Histogram: 6 11 2 7 12 12 6 3 4 1
+Neighs:        23015.0 ave       29257 max       13937 min
+Histogram: 1 1 3 8 8 8 15 7 10 3
+
+Total # of neighbors = 1472962
+Ave neighs/atom = 731.72479
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_190ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_200ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_200ps.data
+Reading data file ...
+  orthogonal box = (-13.387007 -12.964991 -14.103416) to (13.387007 12.964991 14.103416)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1998 atoms
+  reading velocities ...
+  1998 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_200ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8462.0 | 8572.0 | 8660.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2615.8552    18636.624   -277439.75    15571.343    -293011.1            0            0            0   -292566.69    1.9114108    26.774014    25.929982    28.206832 
+     100    2494.5942    16306.254   -277442.53    14849.515   -292292.04            0            0            0   -291850.02    1.9114108    26.774014    25.929982    28.206832 
+Loop time of 9.59667 on 64 procs for 100 steps with 1998 atoms
+
+Performance: 0.090 ns/day, 266.574 hours/ns, 10.420 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 5.9567     | 8.0406     | 9.0195     |  37.1 | 83.79
+Neigh   | 0.019958   | 0.020487   | 0.021545   |   0.3 |  0.21
+Comm    | 0.033792   | 1.013      | 3.0971     | 104.6 | 10.56
+Output  | 0.00020599 | 0.0045913  | 0.0046639  |   0.8 |  0.05
+Modify  | 0.4771     | 0.48046    | 0.52357    |   0.8 |  5.01
+Other   |            | 0.03756    |            |       |  0.39
+
+Nlocal:        31.2188 ave          41 max          17 min
+Histogram: 1 0 2 7 7 16 14 10 1 6
+Nghost:        2941.53 ave        2986 max        2894 min
+Histogram: 2 4 7 7 7 16 5 8 6 2
+Neighs:        22567.2 ave       29411 max       12603 min
+Histogram: 1 0 3 7 10 13 12 8 4 6
+
+Total # of neighbors = 1444300
+Ave neighs/atom = 722.87287
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_200ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_210ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_210ps.data
+Reading data file ...
+  orthogonal box = (-13.110121 -12.892684 -14.264315) to (13.110121 12.892684 14.264315)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1989 atoms
+  reading velocities ...
+  1989 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_210ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8546.0 | 8676.0 | 8757.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2539.8726    14425.905   -276694.06    15050.905   -291744.96            0            0            0   -291316.65    1.9385153    26.220242    25.785368     28.52863 
+     100    2605.0682    26816.822   -276696.67    15437.245   -292133.91            0            0            0   -291704.15    1.9385153    26.220242    25.785368     28.52863 
+Loop time of 9.75507 on 64 procs for 100 steps with 1989 atoms
+
+Performance: 0.089 ns/day, 270.974 hours/ns, 10.251 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0899     | 8.1878     | 9.1625     |  37.4 | 83.93
+Neigh   | 0.020217   | 0.020872   | 0.022437   |   0.3 |  0.21
+Comm    | 0.028013   | 1.0032     | 3.1016     | 106.8 | 10.28
+Output  | 0.00028896 | 0.004538   | 0.0046101  |   0.8 |  0.05
+Modify  | 0.49168    | 0.4965     | 0.5398     |   0.8 |  5.09
+Other   |            | 0.04217    |            |       |  0.43
+
+Nlocal:        31.0781 ave          41 max          14 min
+Histogram: 1 1 2 1 5 13 16 13 11 1
+Nghost:        2973.12 ave        3022 max        2922 min
+Histogram: 4 4 3 7 11 11 8 9 4 3
+Neighs:        22698.1 ave       30669 max       10257 min
+Histogram: 1 1 2 4 4 17 17 11 6 1
+
+Total # of neighbors = 1452678
+Ave neighs/atom = 730.35596
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_210ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_220ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_220ps.data
+Reading data file ...
+  orthogonal box = (-13.146994 -12.834994 -14.091428) to (13.146994 12.834994 14.091428)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1974 atoms
+  reading velocities ...
+  1974 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_220ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8530.0 | 8663.0 | 8816.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2476.6902    6848.6421   -276895.36    14565.758   -291461.12            0            0            0   -291063.68     1.960694    26.293988    25.669988    28.182855 
+     100    2501.6575    18910.514   -276888.16    14712.594   -291600.75            0            0            0   -291202.32     1.960694    26.293988    25.669988    28.182855 
+Loop time of 9.78785 on 64 procs for 100 steps with 1974 atoms
+
+Performance: 0.088 ns/day, 271.885 hours/ns, 10.217 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0845     | 8.2385     | 9.1804     |  37.7 | 84.17
+Neigh   | 0.019894   | 0.020707   | 0.021885   |   0.3 |  0.21
+Comm    | 0.044022   | 0.98668    | 3.1397     | 108.8 | 10.08
+Output  | 0.00026989 | 0.0045402  | 0.004612   |   0.8 |  0.05
+Modify  | 0.49352    | 0.5001     | 0.54468    |   0.9 |  5.11
+Other   |            | 0.03727    |            |       |  0.38
+
+Nlocal:        30.8438 ave          42 max          18 min
+Histogram: 1 2 3 10 9 17 7 10 3 2
+Nghost:        2967.59 ave        3015 max        2930 min
+Histogram: 5 7 7 8 10 9 10 3 3 2
+Neighs:        22678.3 ave       31009 max       13083 min
+Histogram: 1 2 3 10 13 13 9 6 5 2
+
+Total # of neighbors = 1451410
+Ave neighs/atom = 735.26342
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_220ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_230ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_230ps.data
+Reading data file ...
+  orthogonal box = (-13.230819 -12.622532 -14.054912) to (13.230819 12.622532 14.054912)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1964 atoms
+  reading velocities ...
+  1964 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_230ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8543.0 | 8678.0 | 8812.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2517.5621     16564.58    -276618.6    14731.087   -291349.69            0            0            0   -290949.23    1.9853206    26.461638    25.245064    28.109823 
+     100    2516.0541    29352.951   -276614.75    14722.263   -291337.02            0            0            0   -290937.63    1.9853206    26.461638    25.245064    28.109823 
+Loop time of 9.95273 on 64 procs for 100 steps with 1964 atoms
+
+Performance: 0.087 ns/day, 276.465 hours/ns, 10.047 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1516     | 8.3314     | 9.3283     |  37.8 | 83.71
+Neigh   | 0.019945   | 0.020695   | 0.022575   |   0.3 |  0.21
+Comm    | 0.037607   | 1.036      | 3.2177     | 107.4 | 10.41
+Output  | 0.00028205 | 0.0046148  | 0.0046871  |   0.8 |  0.05
+Modify  | 0.51785    | 0.52251    | 0.56667    |   0.8 |  5.25
+Other   |            | 0.03758    |            |       |  0.38
+
+Nlocal:        30.6875 ave          41 max          20 min
+Histogram: 2 7 4 7 9 7 16 4 5 3
+Nghost:        2975.89 ave        3018 max        2930 min
+Histogram: 3 2 4 11 7 12 9 11 4 1
+Neighs:        22753.1 ave       29515 max       14694 min
+Histogram: 1 6 3 6 9 10 15 6 3 5
+
+Total # of neighbors = 1456198
+Ave neighs/atom = 741.44501
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_230ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_240ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_240ps.data
+Reading data file ...
+  orthogonal box = (-13.210287 -12.611086 -14.041383) to (13.210287 12.611086 14.041383)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1953 atoms
+  reading velocities ...
+  1953 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_240ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8607.0 | 8704.0 | 8853.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2560.8364    18971.097   -276525.39    14900.332   -291425.72            0            0            0   -291027.11    1.9911448    26.420575    25.222171    28.082765 
+     100    2509.2157    20943.117   -276525.43    14599.975   -291125.41            0            0            0    -290726.6    1.9911448    26.420575    25.222171    28.082765 
+Loop time of 10.027 on 64 procs for 100 steps with 1953 atoms
+
+Performance: 0.086 ns/day, 278.528 hours/ns, 9.973 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.2002     | 8.3544     | 9.4042     |  38.7 | 83.32
+Neigh   | 0.019793   | 0.020659   | 0.02187    |   0.3 |  0.21
+Comm    | 0.049646   | 1.0991     | 3.2538     | 106.8 | 10.96
+Output  | 0.00027895 | 0.0044978  | 0.0045679  |   0.8 |  0.04
+Modify  | 0.5084     | 0.5109     | 0.55445    |   0.8 |  5.10
+Other   |            | 0.03736    |            |       |  0.37
+
+Nlocal:        30.5156 ave          42 max          22 min
+Histogram: 5 3 7 7 14 16 6 3 2 1
+Nghost:        2975.38 ave        3022 max        2936 min
+Histogram: 2 4 11 13 6 16 2 3 2 5
+Neighs:        22581.4 ave       30378 max       16299 min
+Histogram: 6 5 4 8 13 13 8 4 2 1
+
+Total # of neighbors = 1445209
+Ave neighs/atom = 739.99437
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_240ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_250ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_250ps.data
+Reading data file ...
+  orthogonal box = (-13.276235 -12.637139 -14.066272) to (13.276235 12.637139 14.066272)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1945 atoms
+  reading velocities ...
+  1945 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_250ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8441.0 | 8628.0 | 8765.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2528.0121    20248.683   -275652.29    14649.058   -290301.35            0            0            0   -289925.95    1.9706764     26.55247    25.274279    28.132543 
+     100    2580.5423    10688.444   -275651.66    14953.455   -290605.12            0            0            0   -290234.79    1.9706764     26.55247    25.274279    28.132543 
+Loop time of 9.87606 on 64 procs for 100 steps with 1945 atoms
+
+Performance: 0.087 ns/day, 274.335 hours/ns, 10.125 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1108     | 8.2282     | 9.2397     |  37.5 | 83.31
+Neigh   | 0.01956    | 0.020397   | 0.022653   |   0.4 |  0.21
+Comm    | 0.068479   | 1.08       | 3.1982     | 103.4 | 10.94
+Output  | 0.0002799  | 0.0044965  | 0.004565   |   0.8 |  0.05
+Modify  | 0.50203    | 0.50587    | 0.54986    |   0.8 |  5.12
+Other   |            | 0.0371     |            |       |  0.38
+
+Nlocal:        30.3906 ave          39 max          18 min
+Histogram: 1 3 2 1 12 12 12 13 3 5
+Nghost:        2952.06 ave        2997 max        2883 min
+Histogram: 1 3 4 4 7 8 10 16 6 5
+Neighs:        22185.3 ave       28887 max       13130 min
+Histogram: 1 3 2 3 11 15 11 12 4 2
+
+Total # of neighbors = 1419857
+Ave neighs/atom = 730.00360
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_250ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_260ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_260ps.data
+Reading data file ...
+  orthogonal box = (-13.197959 -12.671038 -14.075830) to (13.197959 12.671038 14.075830)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1938 atoms
+  reading velocities ...
+  1938 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_260ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8441.0 | 8595.0 | 8709.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2447.0865    13406.186   -276572.48    14129.059   -290701.54            0            0            0   -290324.09    1.9750961    26.395918    25.342077     28.15166 
+     100    2458.3569     16087.25   -276576.27    14194.133    -290770.4            0            0            0   -290396.37    1.9750961    26.395918    25.342077     28.15166 
+Loop time of 9.81924 on 64 procs for 100 steps with 1938 atoms
+
+Performance: 0.088 ns/day, 272.757 hours/ns, 10.184 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0933     | 8.1724     | 9.2032     |  37.8 | 83.23
+Neigh   | 0.019624   | 0.020328   | 0.02481    |   0.5 |  0.21
+Comm    | 0.03023    | 1.061      | 3.1407     | 104.8 | 10.80
+Output  | 0.00028801 | 0.0044721  | 0.004545   |   0.8 |  0.05
+Modify  | 0.51925    | 0.52412    | 0.56756    |   0.8 |  5.34
+Other   |            | 0.03694    |            |       |  0.38
+
+Nlocal:        30.2812 ave          40 max          22 min
+Histogram: 3 2 11 13 5 14 8 4 1 3
+Nghost:        2940.27 ave        2977 max        2893 min
+Histogram: 3 3 6 4 7 11 9 13 2 6
+Neighs:        22081.7 ave       29202 max       15572 min
+Histogram: 3 1 9 9 11 15 8 4 1 3
+
+Total # of neighbors = 1413226
+Ave neighs/atom = 729.21878
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_260ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_270ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_270ps.data
+Reading data file ...
+  orthogonal box = (-13.092555 -12.829480 -13.935406) to (13.092555 12.829480 13.935406)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1934 atoms
+  reading velocities ...
+  1934 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_270ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8406.0 | 8603.0 | 8777.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2512.2446    10615.384      -276568    14475.317   -291043.31            0            0            0   -290662.83    1.9858661    26.185111     25.65896    27.870811 
+     100    2416.4996    11488.434   -276571.17    13923.643   -290494.81            0            0            0   -290123.95    1.9858661    26.185111     25.65896    27.870811 
+Loop time of 10.0882 on 64 procs for 100 steps with 1934 atoms
+
+Performance: 0.086 ns/day, 280.227 hours/ns, 9.913 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1079     | 8.2382     | 9.4697     |  38.3 | 81.66
+Neigh   | 0.019654   | 0.020286   | 0.022377   |   0.4 |  0.20
+Comm    | 0.017904   | 1.2503     | 3.381      |  98.3 | 12.39
+Output  | 0.00027418 | 0.0044588  | 0.004528   |   0.8 |  0.04
+Modify  | 0.52892    | 0.53816    | 0.58121    |   0.8 |  5.33
+Other   |            | 0.03674    |            |       |  0.36
+
+Nlocal:        30.2188 ave          39 max          17 min
+Histogram: 1 1 0 8 7 17 9 9 6 6
+Nghost:        2942.69 ave        2998 max        2861 min
+Histogram: 1 1 4 10 4 12 8 9 8 7
+Neighs:        22116.2 ave       28688 max       12627 min
+Histogram: 1 1 2 8 10 12 10 9 6 5
+
+Total # of neighbors = 1415434
+Ave neighs/atom = 731.86867
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_270ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_280ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_280ps.data
+Reading data file ...
+  orthogonal box = (-13.070274 -12.837948 -13.978012) to (13.070274 12.837948 13.978012)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1927 atoms
+  reading velocities ...
+  1927 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_280ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8297.0 | 8519.0 | 8702.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2469.0477     20472.18   -275667.49    14174.902    -289842.4            0            0            0   -289480.48    1.9799287    26.140548    25.675896    27.956024 
+     100    2480.4043    6492.8082   -275670.83    14240.101   -289910.93            0            0            0   -289554.79    1.9799287    26.140548    25.675896    27.956024 
+Loop time of 9.79723 on 64 procs for 100 steps with 1927 atoms
+
+Performance: 0.088 ns/day, 272.145 hours/ns, 10.207 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.0239     | 8.1477     | 9.2185     |  38.4 | 83.16
+Neigh   | 0.019269   | 0.02008    | 0.022023   |   0.4 |  0.20
+Comm    | 0.019003   | 1.0901     | 3.2153     | 105.0 | 11.13
+Output  | 0.00027585 | 0.0044572  | 0.0045259  |   0.8 |  0.05
+Modify  | 0.49492    | 0.49815    | 0.5426     |   0.8 |  5.08
+Other   |            | 0.03673    |            |       |  0.37
+
+Nlocal:        30.1094 ave          40 max          16 min
+Histogram: 1 0 2 5 6 19 10 17 2 2
+Nghost:        2922.27 ave        2999 max        2843 min
+Histogram: 1 3 12 8 4 12 14 3 2 5
+Neighs:        21906.7 ave       29330 max       11388 min
+Histogram: 1 0 2 5 9 19 10 13 4 1
+
+Total # of neighbors = 1402029
+Ave neighs/atom = 727.57084
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_280ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_290ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_290ps.data
+Reading data file ...
+  orthogonal box = (-12.987050 -12.697777 -13.945071) to (12.987050 12.697777 13.945071)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1925 atoms
+  reading velocities ...
+  1925 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_290ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8522.0 | 8674.0 | 8840.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2565.8343      8389.34   -275609.98    14715.261   -290325.24            0            0            0   -289966.52    2.0191902    25.974099    25.395554    27.890141 
+     100    2549.6058   -3681.1605   -275614.96     14622.19   -290237.15            0            0            0   -289882.84    2.0191902    25.974099    25.395554    27.890141 
+Loop time of 10.0874 on 64 procs for 100 steps with 1925 atoms
+
+Performance: 0.086 ns/day, 280.206 hours/ns, 9.913 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1644     | 8.41       | 9.4478     |  39.0 | 83.37
+Neigh   | 0.019734   | 0.020484   | 0.022127   |   0.3 |  0.20
+Comm    | 0.042788   | 1.0819     | 3.3295     | 108.9 | 10.73
+Output  | 0.00028205 | 0.0044861  | 0.0045571  |   0.8 |  0.04
+Modify  | 0.52491    | 0.52893    | 0.57376    |   0.8 |  5.24
+Other   |            | 0.04155    |            |       |  0.41
+
+Nlocal:        30.0781 ave          41 max          19 min
+Histogram: 2 3 4 10 11 17 7 2 4 4
+Nghost:        2970.75 ave        3051 max        2914 min
+Histogram: 7 3 13 10 10 8 4 4 4 1
+Neighs:        22309.1 ave       30609 max       13799 min
+Histogram: 2 3 3 10 17 10 9 2 5 3
+
+Total # of neighbors = 1427783
+Ave neighs/atom = 741.70545
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_290ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_300ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_300ps.data
+Reading data file ...
+  orthogonal box = (-12.996580 -12.641247 -13.949634) to (12.996580 12.641247 13.949634)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1917 atoms
+  reading velocities ...
+  1917 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_300ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8514.0 | 8647.0 | 8830.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2449.8669    9780.4686   -275790.41    13991.759   -289782.17            0            0            0   -289423.62    2.0253391    25.993161    25.282494    27.899267 
+     100    2511.7274    19638.953   -275790.92    14345.058   -290135.98            0            0            0    -289777.8    2.0253391    25.993161    25.282494    27.899267 
+Loop time of 10.1073 on 64 procs for 100 steps with 1917 atoms
+
+Performance: 0.085 ns/day, 280.759 hours/ns, 9.894 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1862     | 8.3975     | 9.4651     |  39.0 | 83.08
+Neigh   | 0.019815   | 0.02056    | 0.022168   |   0.4 |  0.20
+Comm    | 0.035784   | 1.103      | 3.3148     | 107.7 | 10.91
+Output  | 0.0002799  | 0.0044415  | 0.0045102  |   0.8 |  0.04
+Modify  | 0.54274    | 0.54522    | 0.58865    |   0.7 |  5.39
+Other   |            | 0.03661    |            |       |  0.36
+
+Nlocal:        29.9531 ave          41 max          17 min
+Histogram: 1 1 6 6 9 15 10 12 3 1
+Nghost:        2967.67 ave        3060 max        2916 min
+Histogram: 6 7 15 12 7 8 4 4 0 1
+Neighs:        22201.3 ave       30349 max       12304 min
+Histogram: 1 1 4 7 11 13 13 8 5 1
+
+Total # of neighbors = 1420883
+Ave neighs/atom = 741.20136
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_300ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_310ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_310ps.data
+Reading data file ...
+  orthogonal box = (-12.965483 -12.491980 -14.024468) to (12.965483 12.491980 14.024468)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1914 atoms
+  reading velocities ...
+  1914 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_310ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8524.0 | 8686.0 | 8844.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2496.7421    20900.926   -275879.94    14237.147   -290117.09            0            0            0   -289755.81     2.043217    25.930965    24.983959    28.048935 
+     100    2516.9229    23694.757   -275875.44    14352.223   -290227.67            0            0            0   -289867.21     2.043217    25.930965    24.983959    28.048935 
+Loop time of 10.0839 on 64 procs for 100 steps with 1914 atoms
+
+Performance: 0.086 ns/day, 280.109 hours/ns, 9.917 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1451     | 8.4768     | 9.4814     |  39.0 | 84.06
+Neigh   | 0.019804   | 0.020584   | 0.022083   |   0.3 |  0.20
+Comm    | 0.031118   | 1.0356     | 3.3678     | 111.5 | 10.27
+Output  | 0.00027919 | 0.0044314  | 0.0044999  |   0.8 |  0.04
+Modify  | 0.50715    | 0.50987    | 0.55232    |   0.8 |  5.06
+Other   |            | 0.03659    |            |       |  0.36
+
+Nlocal:        29.9062 ave          39 max          15 min
+Histogram: 1 0 3 5 3 15 14 12 7 4
+Nghost:        2980.31 ave        3038 max        2916 min
+Histogram: 2 4 6 8 9 9 10 5 8 3
+Neighs:        22326.0 ave       29085 max       11311 min
+Histogram: 1 0 3 6 4 13 18 7 9 3
+
+Total # of neighbors = 1428862
+Ave neighs/atom = 746.53187
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_310ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_320ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_320ps.data
+Reading data file ...
+  orthogonal box = (-13.078609 -12.515131 -13.872971) to (13.078609 12.515131 13.872971)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1911 atoms
+  reading velocities ...
+  1911 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_320ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8558.0 | 8727.0 | 8835.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2544.6842    13827.397   -275092.36    14487.771   -289580.13            0            0            0    -289227.1    2.0435988    26.157218    25.030263    27.745943 
+     100    2610.2703    25006.373   -275092.54    14861.175   -289953.71            0            0            0   -289593.68    2.0435988    26.157218    25.030263    27.745943 
+Loop time of 10.1866 on 64 procs for 100 steps with 1911 atoms
+
+Performance: 0.085 ns/day, 282.961 hours/ns, 9.817 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.2346     | 8.5199     | 9.5814     |  39.5 | 83.64
+Neigh   | 0.019947   | 0.020558   | 0.022125   |   0.3 |  0.20
+Comm    | 0.023977   | 1.0855     | 3.3713     | 110.7 | 10.66
+Output  | 0.00028086 | 0.0044322  | 0.0045002  |   0.8 |  0.04
+Modify  | 0.51735    | 0.5197     | 0.56241    |   0.8 |  5.10
+Other   |            | 0.03649    |            |       |  0.36
+
+Nlocal:        29.8594 ave          38 max          19 min
+Histogram: 1 2 2 12 9 8 11 9 7 3
+Nghost:        2981.44 ave        3006 max        2939 min
+Histogram: 1 0 3 5 9 6 8 19 9 4
+Neighs:        22257.4 ave       28082 max       14121 min
+Histogram: 1 3 1 11 9 7 11 8 10 3
+
+Total # of neighbors = 1424475
+Ave neighs/atom = 745.40816
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_320ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_330ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_330ps.data
+Reading data file ...
+  orthogonal box = (-13.066273 -12.539832 -13.974819) to (13.066273 12.539832 13.974819)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1909 atoms
+  reading velocities ...
+  1909 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_330ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8484.0 | 8641.0 | 8745.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2520.5523    20855.827   -275473.67    14335.353   -289809.02            0            0            0   -289448.44     2.026438    26.132545    25.079663    27.949638 
+     100    2457.4689      21740.9    -275483.5    13976.573   -289460.07            0            0            0   -289092.72     2.026438    26.132545    25.079663    27.949638 
+Loop time of 9.98067 on 64 procs for 100 steps with 1909 atoms
+
+Performance: 0.087 ns/day, 277.241 hours/ns, 10.019 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1912     | 8.3991     | 9.3603     |  38.6 | 84.15
+Neigh   | 0.01962    | 0.020236   | 0.021437   |   0.3 |  0.20
+Comm    | 0.054544   | 1.0171     | 3.2269     | 111.0 | 10.19
+Output  | 0.00027895 | 0.0044354  | 0.0045059  |   0.8 |  0.04
+Modify  | 0.49898    | 0.50325    | 0.54829    |   0.8 |  5.04
+Other   |            | 0.03654    |            |       |  0.37
+
+Nlocal:        29.8281 ave          41 max          20 min
+Histogram: 3 7 4 13 5 14 8 7 2 1
+Nghost:        2957.72 ave        3004 max        2902 min
+Histogram: 2 3 5 5 10 12 8 11 7 1
+Neighs:        22033.1 ave       30502 max       14649 min
+Histogram: 2 6 6 13 5 15 10 4 2 1
+
+Total # of neighbors = 1410117
+Ave neighs/atom = 738.66789
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_330ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_340ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_340ps.data
+Reading data file ...
+  orthogonal box = (-12.938175 -12.470420 -13.942324) to (12.938175 12.470420 13.942324)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1902 atoms
+  reading velocities ...
+  1902 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_340ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8597.0 | 8747.0 | 8956.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2522.1017    20675.398   -274536.43     14291.54   -288827.97            0            0            0    -288507.4    2.0592708    25.876351    24.940841    27.884648 
+     100    2583.2436    32175.587   -274531.42    14638.001   -289169.42            0            0            0   -288853.46    2.0592708    25.876351    24.940841    27.884648 
+Loop time of 10.4609 on 64 procs for 100 steps with 1902 atoms
+
+Performance: 0.083 ns/day, 290.581 hours/ns, 9.559 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.3531     | 8.5863     | 9.8385     |  39.4 | 82.08
+Neigh   | 0.019871   | 0.020612   | 0.022531   |   0.4 |  0.20
+Comm    | 0.016678   | 1.2689     | 3.5027     | 102.4 | 12.13
+Output  | 0.00027609 | 0.0044228  | 0.0044942  |   0.8 |  0.04
+Modify  | 0.53617    | 0.53968    | 0.58345    |   0.8 |  5.16
+Other   |            | 0.04098    |            |       |  0.39
+
+Nlocal:        29.7188 ave          42 max          21 min
+Histogram: 5 5 7 13 15 11 1 4 2 1
+Nghost:        2986.58 ave        3064 max        2910 min
+Histogram: 2 0 8 9 17 11 6 6 2 3
+Neighs:        22261.6 ave       30993 max       15319 min
+Histogram: 1 6 6 14 14 11 5 3 3 1
+
+Total # of neighbors = 1424742
+Ave neighs/atom = 749.07571
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_340ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_350ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_350ps.data
+Reading data file ...
+  orthogonal box = (-13.000704 -12.526350 -14.012369) to (13.000704 12.526350 14.012369)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1894 atoms
+  reading velocities ...
+  1894 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_350ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8457.0 | 8584.0 | 8757.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2524.3492    8864.3522    -274049.1    14244.078   -288293.18            0            0            0   -287973.64    2.0272843    26.001409      25.0527    28.024738 
+     100    2532.8152     19617.37   -274048.51    14291.849   -288340.36            0            0            0   -288023.93    2.0272843    26.001409      25.0527    28.024738 
+Loop time of 9.99436 on 64 procs for 100 steps with 1894 atoms
+
+Performance: 0.086 ns/day, 277.621 hours/ns, 10.006 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.2381     | 8.3272     | 9.3907     |  38.0 | 83.32
+Neigh   | 0.019433   | 0.019883   | 0.020835   |   0.3 |  0.20
+Comm    | 0.020586   | 1.0845     | 3.1736     | 105.2 | 10.85
+Output  | 0.00026298 | 0.0044001  | 0.0044689  |   0.8 |  0.04
+Modify  | 0.5159     | 0.52218    | 0.56501    |   0.8 |  5.22
+Other   |            | 0.03624    |            |       |  0.36
+
+Nlocal:        29.5938 ave          39 max          19 min
+Histogram: 3 3 3 7 10 10 9 8 7 4
+Nghost:        2933.80 ave        2993 max        2897 min
+Histogram: 6 10 9 12 9 6 6 2 2 2
+Neighs:        21752.9 ave       28197 max       13805 min
+Histogram: 3 3 3 7 11 8 11 6 9 3
+
+Total # of neighbors = 1392187
+Ave neighs/atom = 735.05121
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_350ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_360ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_360ps.data
+Reading data file ...
+  orthogonal box = (-12.883851 -12.390662 -14.169784) to (12.883851 12.390662 14.169784)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1891 atoms
+  reading velocities ...
+  1891 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_360ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8502.0 | 8643.0 | 8768.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0     2421.056     23264.33      -274741    13639.578   -288380.58            0            0            0   -288059.45     2.044821    25.767701    24.781323    28.339568 
+     100    2468.2235    17663.578   -274735.42    13905.307   -288640.73            0            0            0   -288323.08     2.044821    25.767701    24.781323    28.339568 
+Loop time of 10.0119 on 64 procs for 100 steps with 1891 atoms
+
+Performance: 0.086 ns/day, 278.108 hours/ns, 9.988 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.256      | 8.4314     | 9.4577     |  39.4 | 84.21
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.03199    | 1.0589     | 3.2375     | 111.2 | 10.58
+Output  | 0.000283   | 0.004406   | 0.0044751  |   0.8 |  0.04
+Modify  | 0.47057    | 0.47641    | 0.5194     |   0.9 |  4.76
+Other   |            | 0.04072    |            |       |  0.41
+
+Nlocal:        29.5469 ave          38 max          20 min
+Histogram: 2 1 7 6 8 13 13 10 2 2
+Nghost:        2958.50 ave        3015 max        2904 min
+Histogram: 3 2 6 10 11 15 6 5 5 1
+Neighs:        21887.6 ave       28360 max       14545 min
+Histogram: 2 1 4 8 15 9 11 10 3 1
+
+Total # of neighbors = 1400807
+Ave neighs/atom = 740.77578
+Neighbor list builds = 0
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_360ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_370ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_370ps.data
+Reading data file ...
+  orthogonal box = (-13.064680 -12.341400 -13.974253) to (13.064680 12.341400 13.974253)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1889 atoms
+  reading velocities ...
+  1889 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_370ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8535.0 | 8676.0 | 8898.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2405.9892    11615.675   -275104.72    13540.352   -288645.07            0            0            0    -288331.5    2.0527102    26.129359      24.6828    27.948505 
+     100    2462.8098    23054.581   -275095.02    13860.126   -288955.14            0            0            0    -288640.3    2.0527102    26.129359      24.6828    27.948505 
+Loop time of 10.0496 on 64 procs for 100 steps with 1889 atoms
+
+Performance: 0.086 ns/day, 279.155 hours/ns, 9.951 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.3223     | 8.4761     | 9.4641     |  38.9 | 84.34
+Neigh   | 0.019674   | 0.020343   | 0.021496   |   0.3 |  0.20
+Comm    | 0.043095   | 1.031      | 3.1849     | 111.6 | 10.26
+Output  | 0.00027514 | 0.0043741  | 0.0044472  |   0.8 |  0.04
+Modify  | 0.47895    | 0.48166    | 0.52451    |   0.8 |  4.79
+Other   |            | 0.03615    |            |       |  0.36
+
+Nlocal:        29.5156 ave          39 max          17 min
+Histogram: 2 2 2 2 11 18 10 7 8 2
+Nghost:        2970.62 ave        3039 max        2922 min
+Histogram: 5 9 13 9 9 2 4 4 7 2
+Neighs:        21932.7 ave       29053 max       12748 min
+Histogram: 2 2 3 4 11 15 9 10 6 2
+
+Total # of neighbors = 1403692
+Ave neighs/atom = 743.08735
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_370ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_380ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_380ps.data
+Reading data file ...
+  orthogonal box = (-13.083149 -12.326267 -13.905907) to (13.083149 12.326267 13.905907)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1886 atoms
+  reading velocities ...
+  1886 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_380ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8521.0 | 8673.0 | 8834.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2499.8391    32620.941   -274117.53    14046.163   -288163.69            0            0            0   -287850.38     2.062136    26.166299    24.652533    27.811814 
+     100    2477.3301    20108.981    -274123.5    13919.689   -288043.19            0            0            0   -287733.63     2.062136    26.166299    24.652533    27.811814 
+Loop time of 10.1838 on 64 procs for 100 steps with 1886 atoms
+
+Performance: 0.085 ns/day, 282.883 hours/ns, 9.820 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.3389     | 8.5145     | 9.6384     |  38.7 | 83.61
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.021204   | 1.1442     | 3.3215     | 105.7 | 11.24
+Output  | 0.00028491 | 0.0045085  | 0.0045791  |   0.8 |  0.04
+Modify  | 0.47714    | 0.47993    | 0.52131    |   0.8 |  4.71
+Other   |            | 0.04058    |            |       |  0.40
+
+Nlocal:        29.4688 ave          37 max          16 min
+Histogram: 1 0 2 3 3 16 14 13 6 6
+Nghost:        2968.98 ave        3021 max        2916 min
+Histogram: 3 4 10 8 7 6 9 8 4 5
+Neighs:        21965.2 ave       27389 max       11798 min
+Histogram: 1 0 2 0 6 16 14 13 6 6
+
+Total # of neighbors = 1405775
+Ave neighs/atom = 745.37381
+Neighbor list builds = 0
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_380ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_390ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_390ps.data
+Reading data file ...
+  orthogonal box = (-13.074980 -12.378652 -13.901708) to (13.074980 12.378652 13.901708)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1885 atoms
+  reading velocities ...
+  1885 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_390ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8520.0 | 8620.0 | 8780.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2507.1165    21483.006   -273998.95     14079.58   -288078.53            0            0            0   -287765.55    2.0552198     26.14996    24.757304    27.803417 
+     100    2485.6143    26018.318   -274002.81    13958.828   -287961.63            0            0            0   -287645.77    2.0552198     26.14996    24.757304    27.803417 
+Loop time of 9.96799 on 64 procs for 100 steps with 1885 atoms
+
+Performance: 0.087 ns/day, 276.889 hours/ns, 10.032 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.2906     | 8.4309     | 9.4084     |  39.0 | 84.58
+Neigh   | 0.019323   | 0.020135   | 0.021436   |   0.4 |  0.20
+Comm    | 0.032509   | 1.0097     | 3.1506     | 112.7 | 10.13
+Output  | 0.00028205 | 0.0043899  | 0.0044582  |   0.8 |  0.04
+Modify  | 0.46441    | 0.46681    | 0.50748    |   0.8 |  4.68
+Other   |            | 0.03613    |            |       |  0.36
+
+Nlocal:        29.4531 ave          39 max          15 min
+Histogram: 1 0 1 1 9 20 14 11 6 1
+Nghost:        2950.95 ave        3009 max        2916 min
+Histogram: 5 11 12 15 4 5 2 6 3 1
+Neighs:        21864.6 ave       29032 max       11189 min
+Histogram: 1 0 1 1 12 18 16 9 5 1
+
+Total # of neighbors = 1399334
+Ave neighs/atom = 742.35225
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_390ps_renumbered.data
+System init for write_data ...
+clear
+variable        myid string PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_400ps
+units           real
+dimension       3
+boundary        p p p
+atom_style      charge
+read_data       ${myid}.data
+read_data       PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_400ps.data
+Reading data file ...
+  orthogonal box = (-12.993895 -12.256842 -14.150263) to (12.993895 12.256842 14.150263)
+  4 by 4 by 4 MPI processor grid
+  reading atoms ...
+  1885 atoms
+  reading velocities ...
+  1885 velocities
+  read_data CPU = 0.006 seconds
+pair_style	     reax/c NULL  safezone 200 mincap 2000
+pair_coeff      * * ffield_CHON_for_PAN_PBO.reax C H O
+fix             charges all qeq/reax 1 0.0 10.0 1.0e-6 reax/c
+reset_atom_ids  sort yes
+Resetting atom IDs ...
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 5 5 5
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: half/ghost/bin/3d/newtoff
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+timestep        0.1
+thermo          100
+thermo_style    custom step temp press etotal ke pe ebond eangle edihed evdwl density lx ly lz
+fix             1 all nvt temp 2500 2500 100
+fix             2 all reax/c/bonds 10 ${myid}_renumbered.reaxc
+fix             2 all reax/c/bonds 10 PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_400ps_renumbered.reaxc
+run             100 # 0.01 ps
+Per MPI rank memory allocation (min/avg/max) = 8465.0 | 8622.0 | 8732.0 Mbytes
+Step Temp Press TotEng KinEng PotEng E_bond E_angle E_dihed E_vdwl Density Lx Ly Lz 
+       0    2500.5419    27221.412   -274045.62    14042.659   -288088.28            0            0            0   -287778.88    2.0519103    25.987791    24.513684    28.300526 
+     100    2521.8313    16694.757   -274050.74    14162.217   -288212.95            0            0            0   -287899.73    2.0519103    25.987791    24.513684    28.300526 
+Loop time of 10.0079 on 64 procs for 100 steps with 1885 atoms
+
+Performance: 0.086 ns/day, 277.998 hours/ns, 9.992 timesteps/s
+100.0% CPU use with 64 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.1756     | 8.418      | 9.4295     |  39.7 | 84.11
+Neigh   | 0.019502   | 0.019974   | 0.021157   |   0.2 |  0.20
+Comm    | 0.028467   | 1.04       | 3.2825     | 113.0 | 10.39
+Output  | 0.0002768  | 0.0043737  | 0.004441   |   0.8 |  0.04
+Modify  | 0.4859     | 0.48944    | 0.53246    |   0.8 |  4.89
+Other   |            | 0.03609    |            |       |  0.36
+
+Nlocal:        29.4531 ave          37 max          22 min
+Histogram: 3 2 7 4 16 11 9 4 6 2
+Nghost:        2950.86 ave        2997 max        2907 min
+Histogram: 1 1 6 13 17 8 7 7 3 1
+Neighs:        21831.8 ave       27172 max       16219 min
+Histogram: 3 2 7 7 11 14 7 6 3 4
+
+Total # of neighbors = 1397234
+Ave neighs/atom = 741.23820
+Neighbor list builds = 1
+Dangerous builds = 0
+write_data      ${myid}_renumbered.data
+write_data      PFA_rep_4_reax_c_species_NPT_2300K_2_GPa_01ps_carb_cycle_time_400ps_renumbered.data
+System init for write_data ...
+clear
+
+Please see the log.cite file for references relevant to this simulation
+
+Total wall time: 0:08:08
